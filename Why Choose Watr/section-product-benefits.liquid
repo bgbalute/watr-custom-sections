@@ -1,0 +1,149 @@
+{{ 'section-product-benefits.css' | asset_url | stylesheet_tag }}
+
+<div class="product-benefits">
+
+    <h2 class="h4 standard__heading product-benefits__title">{{ section.settings.pb-benefits-title }}</h2>
+    <div class="product-benefits-content">
+        <div class="product-benefits-item">
+            <img class="product-benefits__image" src="{{ section.settings.pb-benefits-image1 | img_url: '60x' }}" alt="">
+            <p class="product-benefits__text">{{ section.settings.pb-benefits-text1 }}</p>
+        </div>
+        <div class="product-benefits-item">
+            <img class="product-benefits__image" src="{{ section.settings.pb-benefits-image2 | img_url: '60x' }}" alt="">
+            <p class="product-benefits__text">{{ section.settings.pb-benefits-text2 }}</p>
+        </div>
+        <div class="product-benefits-item">
+            <img class="product-benefits__image" src="{{ section.settings.pb-benefits-image3 | img_url: '60x' }}" alt="">
+            <p class="product-benefits__text">{{ section.settings.pb-benefits-text3 }}</p>
+        </div>
+        
+        <div class="product-benefits-item">
+            <img class="product-benefits__image" src="{{ section.settings.pb-benefits-image4 | img_url: '60x' }}" alt="">
+            <p class="product-benefits__text">{{ section.settings.pb-benefits-text4 }}</p>
+        </div>
+        <div class="product-benefits-item">
+            <img class="product-benefits__image" src="{{ section.settings.pb-benefits-image5 | img_url: '60x' }}" alt="">
+            <p class="product-benefits__text">{{ section.settings.pb-benefits-text5 }}</p>
+        </div>
+        
+        <div class="product-benefits-item">
+            <img class="product-benefits__image" src="{{ section.settings.pb-benefits-image6 | img_url: '60x' }}" alt="">
+            <p class="product-benefits__text">{{ section.settings.pb-benefits-text6 }}</p>
+        </div>
+    </div>
+</div>
+
+
+{% schema %}
+{
+   "name": "CS - Product Benefits",
+  "settings": [
+     {
+         "type": "header",
+         "content": "Product Benefits"
+     },
+  {
+      "type": "text",
+      "id": "pb-benefits-title",
+      "label": "Text",
+      "default": "Why Choose Watr"
+  },
+    {
+        "type": "header",
+        "content": "Benefits 1"
+    },
+   {
+       "type": "image_picker",
+       "id": "pb-benefits-image1",
+       "label": "Benefits Icon"
+   },
+  {
+      "type": "text",
+      "id": "pb-benefits-text1",
+      "label": "Text",
+      "default": "(Insert Benefit Here)"
+  },
+  {
+      "type": "header",
+      "content": "Benefits 2"
+  },
+ {
+     "type": "image_picker",
+     "id": "pb-benefits-image2",
+     "label": "Benefits Icon"
+ },
+{
+    "type": "text",
+    "id": "pb-benefits-text2",
+    "label": "Text",
+    "default": "(Insert Benefit Here)"
+},
+{
+    "type": "header",
+    "content": "Benefits 3"
+},
+{
+   "type": "image_picker",
+   "id": "pb-benefits-image3",
+   "label": "Benefits Icon"
+},
+{
+  "type": "text",
+  "id": "pb-benefits-text3",
+  "label": "Text",
+  "default": "(Insert Benefit Here)"
+},
+{
+    "type": "header",
+    "content": "Benefits 4"
+},
+{
+   "type": "image_picker",
+   "id": "pb-benefits-image4",
+   "label": "Benefits Icon"
+},
+{
+  "type": "text",
+  "id": "pb-benefits-text4",
+  "label": "Text",
+  "default": "(Insert Benefit Here)"
+},
+{
+    "type": "header",
+    "content": "Benefits 5"
+},
+{
+   "type": "image_picker",
+   "id": "pb-benefits-image5",
+   "label": "Benefits Icon"
+},
+{
+  "type": "text",
+  "id": "pb-benefits-text5",
+  "label": "Text",
+  "default": "(Insert Benefit Here)"
+},
+{
+    "type": "header",
+    "content": "Benefits 6"
+},
+{
+   "type": "image_picker",
+   "id": "pb-benefits-image6",
+   "label": "Benefits Icon"
+},
+{
+  "type": "text",
+  "id": "pb-benefits-text6",
+  "label": "Text",
+  "default": "(Insert Benefit Here)"
+}
+
+  ],
+ "presets": [
+     {
+         "name":"Product Benefits"
+     }
+ ]
+}
+{% endschema %}

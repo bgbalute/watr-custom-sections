@@ -1,0 +1,185 @@
+{{ 'section-custom-collection.css' | asset_url | stylesheet_tag }}
+{% render 'margin' %}
+
+{%- style -%}
+.custom-collection-item1{
+    background-color: {{ section.settings.custom-collection1-color }};
+}
+.custom-collection-item2{
+    background-color: {{ section.settings.custom-collection2-color }};
+}
+.custom-collection-item3{
+    background-color: {{ section.settings.custom-collection3-color }};
+}
+{%- endstyle -%}
+
+<div class="custom-collection page-width section-{{ section.id }}-margin">
+    <div class="custom-collection-item custom-collection-item1">
+        <a href="{{ section.settings.custom-collection1-link }}" class="custom-collection__link">
+            <div class="custom-collection-title">
+                <h1 class="custom-collection__title">{{ section.settings.custom-collection1-title }}</h1>
+            </div>
+            <div class="custom-collection-image">
+                <img src="{{ section.settings.custom-collection1-image | img_url: '450x' }}" alt="" class="custom-collection__image">
+                <p class="custom-collection__hover-text">{{ section.settings.custom-collection1-text }}</p>
+            </div>
+        </a>
+    </div>
+    <div class="custom-collection-item custom-collection-item2">
+        <a href="{{ section.settings.custom-collection2-link }}" class="custom-collection__link">
+            <div class="custom-collection-title">
+                <h1 class="custom-collection__title">{{ section.settings.custom-collection2-title }}</h1>
+            </div>
+            <div class="custom-collection-image">
+                <img src="{{ section.settings.custom-collection2-image | img_url: '450x' }}" alt="" class="custom-collection__image">
+                <p class="custom-collection__hover-text">{{ section.settings.custom-collection2-text }}</p>
+            </div>
+          
+        </a>
+    </div>
+    <div class="custom-collection-item custom-collection-item3">
+        <a href="{{ section.settings.custom-collection3-link }}" class="custom-collection__link">
+            <div class="custom-collection-title">
+                <h1 class="custom-collection__title">{{ section.settings.custom-collection3-title }}</h1>
+            </div>
+            <div class="custom-collection-image">
+                <img src="{{ section.settings.custom-collection3-image | img_url: '450x' }}" alt="" class="custom-collection__image">
+                <p class="custom-collection__hover-text">{{ section.settings.custom-collection3-text }}</p>
+            </div>
+          
+        </a>
+    </div>
+</div>
+
+{% schema %}
+{
+    "name": "CS - Collection",
+    "settings": [
+      {
+        "type": "header",
+        "content": "Collection 1"
+      },
+      {
+        "type": "text",
+        "id": "custom-collection1-title",
+        "label": "Title",
+        "default": "CALM WATR"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom-collection1-image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "custom-collection1-link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "custom-collection1-text",
+        "label": "Hover Text",
+        "default": "(Insert Hover Text Here)"
+      },
+      {
+        "type": "color",
+        "id": "custom-collection1-color",
+        "label": "Background Color",
+        "default": "#F7EBD2"
+      },
+      {
+        "type": "header",
+        "content": "Collection 2"
+      },
+      {
+        "type": "text",
+        "id": "custom-collection2-title",
+        "label": "Title",
+        "default": "ALIVE WATR"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom-collection2-image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "custom-collection2-link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "custom-collection2-text",
+        "label": "Hover Text",
+        "default": "(Insert Hover Text Here)"
+      },
+      {
+        "type": "color",
+        "id": "custom-collection2-color",
+        "label": "Background Color",
+        "default": "#D1F2FA"
+      },
+      {
+        "type": "header",
+        "content": "Collection 3"
+      },
+      {
+        "type": "text",
+        "id": "custom-collection3-title",
+        "label": "Title",
+        "default": "REVIVE WATR"
+      },
+      {
+        "type": "image_picker",
+        "id": "custom-collection3-image",
+        "label": "Image"
+      },
+      {
+        "type": "url",
+        "id": "custom-collection3-link",
+        "label": "Link"
+      },
+      {
+        "type": "text",
+        "id": "custom-collection3-text",
+        "label": "Hover Text",
+        "default": "(Insert Hover Text Here)"
+      },
+      {
+        "type": "color",
+        "id": "custom-collection3-color",
+        "label": "Background Color",
+        "default": "#FFD2B3"
+      },
+      {
+        "type": "header",
+        "content": "Section Margin"
+      },
+      {
+        "type": "range",
+        "id": "margin_top",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Margin Top",
+        "default": 36
+      },
+      {
+        "type": "range",
+        "id": "margin_bottom",
+        "min": 0,
+        "max": 100,
+        "step": 4,
+        "unit": "px",
+        "label": "Margin Bottom",
+        "default": 36
+      }
+    ],
+    "presets": [
+      {
+        "name": "CS - Collection"
+      }
+    ]
+  }
+{% endschema %}

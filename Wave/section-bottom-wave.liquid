@@ -1,0 +1,33 @@
+<style>
+    .custom-bottom-wave{
+        width: 100%;
+        margin-top: -{{ section.settings.bottom-wave-adjustment }}px;
+    }
+</style>
+
+<div class="custom-image">
+    <img src="https://cdn.shopify.com/s/files/1/0550/3572/3997/files/Untitled_design_2.png?v=1651529080" alt="" class="custom-bottom-wave">
+</div>
+
+{% schema %}
+{
+  "name": "CS - Bottom Wave",
+  "settings": [
+    {
+      "type": "range",
+      "id": "bottom-wave-adjustment",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Wave Position Adjustment",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Bottom Wave"
+    }
+  ]
+}
+{% endschema %}

@@ -1,0 +1,119 @@
+.ingredient__image{
+    max-width: 160px;
+    width: 100%;
+}
+.ingredient{
+    background-color: #d1f2fa;
+}
+.ingredient-section{
+    max-width: 1500px;
+    margin: 0 auto;
+    display: grid;
+    padding: 50px 30px;
+}
+.ingredient-description{
+    visibility: hidden;
+  background-color: #fff;
+  color: #555;
+  text-align: center;
+  border-radius: 20px;
+  padding: 15px 20px;   
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  min-width: 200px;
+}
+.show-ingredients-info {
+    visibility: visible;
+    -webkit-animation: fadeIn 0.5s;
+    animation: fadeIn 0.5s;
+  }
+  
+  /* Add animation (fade in the popup) */
+  @-webkit-keyframes fadeIn {
+    from {opacity: 0;} 
+    to {opacity: 1;}
+  }
+  
+  @keyframes fadeIn {
+    from {opacity: 0;}
+    to {opacity:1 ;}
+  }
+
+.ingredient-desciption__title{
+    font-weight: 700;
+    font-size: 1.2rem;
+}
+.ingredient-text{
+    padding-right: 20px;
+}
+.ingredient-icons{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(180px, 2fr) );
+    grid-gap: 1em;
+    padding-left: 30px;
+}
+.ingredient-item{
+    position: relative;
+  display: inline-block;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+.ingredient__button{
+    position: absolute;
+    left: 0;
+    color: white;
+    background: #2F91AC;
+    border-radius: 25px;
+    font-size: 1.2rem;
+}
+
+.ingredient__link{
+    margin-top: 20px;
+    display: inline-block;
+    font-weight: 700;
+}
+
+@media only screen and (min-width: 750px) {
+    .ingredient-section{
+        grid-template-columns: 2fr 3fr;
+        padding: 50px 30px;
+    }
+    
+    .idesc-top, .idesc-top-m{
+        bottom: auto;
+        top: 30%;
+    }
+  }
+
+  @media only screen and (max-width: 749px) {
+    .ingredient-section{
+        padding: 50px 15px;
+        justify-items: center;
+    }
+    .ingredient-icons{
+        padding: 30px 0;
+        grid-template-columns: 1fr 1fr 1fr;
+    }
+    .ingredient-description{
+        
+    }
+    .ingredient-description{
+        margin: 0;
+    }
+    .idesc-right{
+        right: 0%;
+    }
+    
+    .idesc-top{
+        bottom: auto;
+        top: 30%;
+    }
+  }
+
+  #ingredient-btn1-cls{
+      visibility: hidden;
+  }

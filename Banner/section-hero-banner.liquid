@@ -1,0 +1,73 @@
+{{ 'section-hero-banner.css' | asset_url | stylesheet_tag }}
+
+
+{% style %}
+
+.banner-text-background {
+    background-color: {{section.settings.text-background-color | color_modify: 'alpha', 0.70 }};
+    padding:20px;
+}
+    
+{% endstyle %}
+
+<div class="hero-banner">
+    {% if section.settings.hero_button_link %}
+    <a id="banner-link" href="{{ section.settings.hero_button_link }}">
+        {% render 'banner-image' %}
+    </a>
+    {% else %}
+        {% render 'banner-image' %}
+    {% endif %}
+</div>
+
+
+
+{% schema %}
+{
+  "name": "CS - Hero Banner",
+  "settings": [
+    {
+      "type": "header",
+      "content": "Image Banner"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "hero-image-main"
+    },
+    {
+      "type": "image_picker",
+      "label": "Image",
+      "id": "hero-image-mobile"
+    },
+    {
+      "type": "url",
+      "id": "hero_button_link",
+      "label": "Button Link"
+    },
+   {
+       "type": "text",
+       "id": "banner-text",
+       "label": "Text",
+       "default": "(Insert Banner Text Here)"
+   },
+  {
+      "type": "checkbox",
+      "id": "show-text-background",
+      "label": "Text Background",
+      "default":true
+  },
+ {
+     "type": "color",
+     "id": "text-background-color",
+     "label": "Text Background Color",
+     "default": "#fff"
+ }
+  ],
+  "presets": [
+    {
+      "name": "Hero Banner"
+    }
+  ]
+}
+{% endschema %}

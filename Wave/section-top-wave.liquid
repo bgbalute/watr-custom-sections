@@ -1,0 +1,33 @@
+<style>
+    .custom-top-wave{
+        width: 100%;
+        margin-bottom: -{{ section.settings.top-wave-adjustment }}px;
+    }
+</style>
+
+<div class="custom-image">
+    <img src="https://cdn.shopify.com/s/files/1/0550/3572/3997/files/Untitled_design.png?v=1651525798" alt="" class="custom-top-wave">
+</div>
+
+{% schema %}
+{
+  "name": "CS - Top Wave",
+  "settings": [
+    {
+      "type": "range",
+      "id": "top-wave-adjustment",
+      "min": 0,
+      "max": 100,
+      "step": 2,
+      "unit": "px",
+      "label": "Wave Position Adjustment",
+      "default": 4
+    }
+  ],
+  "presets": [
+    {
+      "name": "Top Wave"
+    }
+  ]
+}
+{% endschema %}

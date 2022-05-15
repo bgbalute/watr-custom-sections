@@ -1,0 +1,17 @@
+.discounts-section{
+    display: grid;
+    grid-template-columns: repeat( auto-fit, minmax(300px, 1fr) );
+    margin: 0 auto;
+    max-width: 1500px;
+    grid-gap: 1.5em;
+    padding:0 30px;
+}
+.discounts__image{
+    width: 100%;
+    transition: 0.3s all;
+}
+
+.discounts__image:hover{
+    transform: scale(1.03);
+}
+

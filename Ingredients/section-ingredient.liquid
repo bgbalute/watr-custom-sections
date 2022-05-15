@@ -1,0 +1,464 @@
+{{ 'section-ingredient.css' | asset_url | stylesheet_tag }}
+
+<div class="ingredient">
+    <div class="ingredient-section">
+        <div class="ingredient-text">
+            <h1 class="ingredient__title">{{ section.settings.ingredients-title }}</h1>
+            <p class="ingredient__subtitle">{{ section.settings.ingredients-subtitle }}</p>
+            <a href="{{ section.settings.ingredients-cta-link }}" class="ingredient__link">{{ section.settings.ingredients-cta-text }}</a>
+        </div>
+        <div class="ingredient-icons">
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients1-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn1">+</button>
+                <div class="ingredient-description idesc-top" id="ingredient-info1">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients1-name }}</p>
+                    {{ section.settings.ingredients1-details }}
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients2-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn2">+</button>
+                <div class="ingredient-description idesc-top" id="ingredient-info2">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients2-name }}</p>
+                    <p class="ingredient-description__content">{{ section.settings.ingredients2-details }}</p>
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients3-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn3">+</button>
+                <div class="ingredient-description idesc-top idesc-right" id="ingredient-info3">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients3-name }}</p>
+                    {{ section.settings.ingredients3-details }}
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients4-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn4">+</button>
+                <div class="ingredient-description idesc-top-m" id="ingredient-info4">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients4-name }}</p>
+                    <p class="ingredient-description__content">{{ section.settings.ingredients4-details }}</p>
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients5-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn5">+</button>
+                <div class="ingredient-description" id="ingredient-info5">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients5-name }}</p>
+                    <p class="ingredient-description__content">{{ section.settings.ingredients5-details }}</p>
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients6-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn6">+</button>
+                <div class="ingredient-description idesc-right" id="ingredient-info6">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients6-name }}</p>
+                    <p class="ingredient-description__content">{{ section.settings.ingredients6-details }}</p>
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients7-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn7">+</button>
+                <div class="ingredient-description" id="ingredient-info7">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients7-name }}</p>
+                    <p class="ingredient-description__content">{{ section.settings.ingredients7-details }}</p>
+                </div>
+            </div>
+            <div class="ingredient-item">
+                <img class="ingredient__image" src="{{ section.settings.ingredients8-image | img_url: 'master' }}" alt="">
+                <button class="ingredient__button" id="ingredient-btn8">+</button>
+                <div class="ingredient-description" id="ingredient-info8">
+                    <p class="ingredient-desciption__title">{{ section.settings.ingredients8-name }}</p>
+                    <p class="ingredient-description__content">{{ section.settings.ingredients8-details }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+{% javascript %}
+var ingredientBtn1 = document.getElementById("ingredient-btn1");
+ingredientBtn1.addEventListener("click", showIngredients1);
+
+var ingredientBtn2 = document.getElementById("ingredient-btn2");
+ingredientBtn2.addEventListener("click", showIngredients2);
+
+var ingredientBtn3 = document.getElementById("ingredient-btn3");
+ingredientBtn3.addEventListener("click", showIngredients3);
+
+var ingredientBtn4 = document.getElementById("ingredient-btn4");
+ingredientBtn4.addEventListener("click", showIngredients4);
+
+var ingredientBtn5 = document.getElementById("ingredient-btn5");
+ingredientBtn5.addEventListener("click", showIngredients5);
+
+var ingredientBtn6 = document.getElementById("ingredient-btn6");
+ingredientBtn6.addEventListener("click", showIngredients6);
+
+var ingredientBtn7 = document.getElementById("ingredient-btn7");
+ingredientBtn7.addEventListener("click", showIngredients7);
+
+var ingredientBtn8 = document.getElementById("ingredient-btn8");
+ingredientBtn8.addEventListener("click", showIngredients8);
+
+var popupInfo1 = document.getElementById("ingredient-info1");
+var popupInfo2 = document.getElementById("ingredient-info2");
+var popupInfo3 = document.getElementById("ingredient-info3");
+var popupInfo4 = document.getElementById("ingredient-info4");
+var popupInfo5 = document.getElementById("ingredient-info5");
+var popupInfo6 = document.getElementById("ingredient-info6");
+var popupInfo7 = document.getElementById("ingredient-info7");
+var popupInfo8 = document.getElementById("ingredient-info8");
+
+
+
+function removeShowToggle(){
+    if (popupInfo1.classList.contains('show-ingredients-info')) {
+        popupInfo1.classList.remove("show-ingredients-info");
+        ingredientBtn1.innerHTML = '+';
+    }
+    if (popupInfo2.classList.contains('show-ingredients-info')) {
+        popupInfo2.classList.remove("show-ingredients-info");
+        ingredientBtn2.innerHTML = '+';
+    }
+    if (popupInfo3.classList.contains('show-ingredients-info')) {
+        popupInfo3.classList.remove("show-ingredients-info");
+        ingredientBtn3.innerHTML = '+';
+    }
+    if (popupInfo4.classList.contains('show-ingredients-info')) {
+        popupInfo4.classList.remove("show-ingredients-info");
+        ingredientBtn4.innerHTML = '+';
+    }
+    if (popupInfo5.classList.contains('show-ingredients-info')) {
+        popupInfo5.classList.remove("show-ingredients-info");
+        ingredientBtn5.innerHTML = '+';
+    }
+    if (popupInfo6.classList.contains('show-ingredients-info')) {
+        popupInfo6.classList.remove("show-ingredients-info");
+        ingredientBtn6.innerHTML = '+';
+    }
+    if (popupInfo7.classList.contains('show-ingredients-info')) {
+        popupInfo7.classList.remove("show-ingredients-info");
+        ingredientBtn7.innerHTML = '+';
+    }
+    if (popupInfo8.classList.contains('show-ingredients-info')) {
+        popupInfo8.classList.remove("show-ingredients-info");
+        ingredientBtn8.innerHTML = '+';
+    }
+}
+
+function showIngredients1() {
+    if (popupInfo1.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo1.classList.toggle("show-ingredients-info");
+        ingredientBtn1.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients2() {
+
+    if (popupInfo2.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo2.classList.toggle("show-ingredients-info");
+        ingredientBtn2.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients3() {
+    if (popupInfo3.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo3.classList.toggle("show-ingredients-info");
+        ingredientBtn3.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients4() {
+    if (popupInfo4.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo4.classList.toggle("show-ingredients-info");
+        ingredientBtn4.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients5() {
+    if (popupInfo5.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo5.classList.toggle("show-ingredients-info");
+        ingredientBtn5.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients6() {
+    if (popupInfo6.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo6.classList.toggle("show-ingredients-info");
+        ingredientBtn6.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients7() {
+    if (popupInfo7.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo7.classList.toggle("show-ingredients-info");
+        ingredientBtn7.innerHTML = 'x';
+    }
+  }
+
+  
+function showIngredients8() {
+    if (popupInfo8.classList.contains('show-ingredients-info')) {
+        removeShowToggle();         
+    }
+    else{
+        removeShowToggle(); 
+        popupInfo8.classList.toggle("show-ingredients-info");
+        ingredientBtn8.innerHTML = 'x';
+    }
+  }
+
+
+
+{% endjavascript %}
+
+{% schema %}
+{
+   "name": "CS - Ingredients",
+  "settings": [
+     {
+         "type": "header",
+         "content": "Ingredients"
+     },
+    {
+        "type": "text",
+        "id": "ingredients-title",
+        "label": "Title",
+        "default": "Because Ingredients Matter"
+    },
+   {
+       "type": "textarea",
+       "id": "ingredients-subtitle",
+       "label": "Subtitle",
+       "default": "(Insert Subtitle Here)"
+   },
+  {
+      "type": "text",
+      "id": "ingredients-cta-text",
+      "label": "CTA Text",
+      "default": "Learn more about ingredients →"
+  },
+ {
+     "type": "url",
+     "id": "ingredients-link",
+     "label": "CTA Link"
+ },
+{
+    "type": "header",
+    "content": "List of Ingredients"
+},
+{
+    "type": "header",
+    "content": "Ingredients 1"
+},
+{
+    "type": "text",
+    "id": "ingredients1-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+{
+    "type": "richtext",
+    "id": "ingredients1-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients1-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 2"
+},
+{
+    "type": "text",
+    "id": "ingredients2-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+{
+    "type": "richtext",
+    "id": "ingredients2-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients2-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 3"
+},
+{
+    "type": "text",
+    "id": "ingredients3-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+{
+    "type": "richtext",
+    "id": "ingredients3-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients3-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 4"
+},
+{
+    "type": "text",
+    "id": "ingredients4-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+{
+    "type": "richtext",
+    "id": "ingredients4-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients4-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 5"
+},
+{
+    "type": "text",
+    "id": "ingredients5-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+
+{
+    "type": "richtext",
+    "id": "ingredients5-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients5-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 6"
+},
+{
+    "type": "text",
+    "id": "ingredients6-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+
+{
+    "type": "richtext",
+    "id": "ingredients6-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients6-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 7"
+},
+{
+    "type": "text",
+    "id": "ingredients7-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+
+{
+    "type": "richtext",
+    "id": "ingredients7-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients7-image",
+    "label": "Image"
+},
+{
+    "type": "header",
+    "content": "Ingredients 8"
+},
+{
+    "type": "text",
+    "id": "ingredients8-name",
+    "label": "Name",
+    "default": "Vitamin A"
+},
+
+{
+    "type": "richtext",
+    "id": "ingredients8-details",
+    "label": "Details",
+    "default": "<p>(Insert Ingredients Details Here)</p>"
+},
+{
+    "type": "image_picker",
+    "id": "ingredients8-image",
+    "label": "Image"
+}
+  ],
+ "presets": [
+     {
+         "name":"Ingredient"
+     }
+ ]
+}
+{% endschema %}
